@@ -16,7 +16,7 @@ export const LoginImage = styled.img`
 `
 
 export const ContainerItens = styled.div`
-  background-color: #373737;
+  background-color: #303030;
   height: 70%;
   display: flex;
   align-items: flex-start;
@@ -36,8 +36,14 @@ export const ContainerItens = styled.div`
   }
 
   img {
-    width: 100%;
-    margin-bottom: 30px;
+    align-self: center;
+    width: 250px;
+    margin-bottom: 40px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
   }
 `
 
@@ -53,31 +59,32 @@ export const Label = styled.p`
 `
 
 export const Input = styled.input`
-  width: 100%;
+  width: 360px;
   height: 38px;
   background: #ffffff;
   box-shadow: 3px 3px 10px rgba(1, 1, 1, 0.29);
   border-radius: 5px;
-  border: none;
+  border: ${props => (props.error ? ' 2px solid #CC1717;' : 'none')};
   padding-left: 10px;
 `
 
 export const Button = styled.button`
-  width: 182px;
+  width: 180px;
   height: 36px;
   background-color: #9a5bff;
   color: #ffffff;
   border-radius: 20px;
   border: none;
   margin-top: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  transition: all 0.2s ease;
 
   &:hover {
-    opacity: 0.8;
+    transform: translateY(-10%);
   }
 
   &:active {
-    opacity: 0.6;
+    opacity: 0.8;
   }
 `
 
@@ -91,4 +98,12 @@ export const SignInLink = styled.p`
     cursor: pointer;
     color: #ffffff;
   }
+`
+export const ErrorMessage = styled.p`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #cc1717;
+  margin-top: 2px;
 `
