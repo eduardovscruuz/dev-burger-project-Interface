@@ -68,26 +68,6 @@ export const Input = styled.input`
   padding-left: 10px;
 `
 
-export const Button = styled.button`
-  width: 180px;
-  height: 36px;
-  background-color: #9a5bff;
-  color: #ffffff;
-  border-radius: 20px;
-  border: none;
-  margin-top: 50px;
-  margin-bottom: 15px;
-  transition: all 0.2s ease;
-
-  &:hover {
-    transform: translateY(-10%);
-  }
-
-  &:active {
-    opacity: 0.8;
-  }
-`
-
 export const SignInLink = styled.p`
   color: #ffffff;
   font-size: 14px;
