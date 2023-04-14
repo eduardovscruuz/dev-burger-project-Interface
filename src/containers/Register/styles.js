@@ -11,7 +11,7 @@ export const Container = styled.div`
   align-items: center;
 `
 
-export const LoginImage = styled.img`
+export const RegisterImage = styled.img`
   height: 70%;
 `
 
@@ -31,14 +31,14 @@ export const ContainerItens = styled.div`
     font-size: 24px;
     line-height: 28px;
     color: #ffffff;
-    margin-bottom: 22px;
+    margin-bottom: 10px;
     align-self: center;
   }
 
   img {
     align-self: center;
     width: 250px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 
   form {
@@ -54,7 +54,7 @@ export const Label = styled.p`
   line-height: 14px;
   align-self: flex-start;
   color: #ffffff;
-  margin-top: 28px;
+  margin-top: 10px;
   margin-bottom: 5px;
 `
 
