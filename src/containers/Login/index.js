@@ -8,6 +8,7 @@ import * as Yup from 'yup'
 import LoginImg from '../../assets/login.png'
 import Logo from '../../assets/logo2.png'
 import Button from '../../components/Button'
+import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
 import {
   Container,
@@ -20,6 +21,9 @@ import {
 } from './styles'
 
 function Login() {
+  const { putUserData, userData } = useUser()
+  console.log(userData)
+
   const schema = Yup.object().shape({
     email: Yup.string()
       .email('Digite um e-mail válido')
@@ -36,7 +40,7 @@ function Login() {
   } = useForm({ resolver: yupResolver(schema) })
 
   const onSubmit = async clientData => {
-    const response = await toast.promise(
+    const { data } = await toast.promise(
       api.post('sessions', {
         email: clientData.email,
         password: clientData.password
@@ -47,7 +51,7 @@ function Login() {
         error: 'Verifique seu e-mail e senha'
       }
     )
-    console.log(response)
+    putUserData(data)
   }
 
   return (
