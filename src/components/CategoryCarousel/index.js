@@ -32,12 +32,13 @@ export function CategoryCarousel() {
         style={{ width: '90%' }}
         breakPoints={breakPoints}
       >
-        {categories.map(category => (
-          <ContainerItens key={category.id}>
-            <Image src={category.url} alt="foto da categoria" />
-            <Button>{category.name}</Button>
-          </ContainerItens>
-        ))}
+        {categories &&
+          categories.map(category => (
+            <ContainerItens key={category.id}>
+              <Image src={category.url} alt="foto da categoria" />
+              <Button>{category.name}</Button>
+            </ContainerItens>
+          ))}
       </Carousel>
     </Container>
   )
