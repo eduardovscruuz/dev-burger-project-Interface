@@ -3,7 +3,7 @@ import Carousel from 'react-elastic-carousel'
 
 import Category from '../../assets/categorias.png'
 import api from '../../services/api'
-import { Container, CategoryImg, ContainerItems, Image, Button } from './styles'
+import { Container, CategoryImg, ContainerItens, Image, Button } from './styles'
 
 export function CategoryCarousel() {
   const [categories, setCategories] = useState([])
@@ -14,7 +14,6 @@ export function CategoryCarousel() {
 
       setCategories(data)
     }
-
     loadCategories()
   }, [])
 
@@ -22,33 +21,23 @@ export function CategoryCarousel() {
     { width: 1, itemsToShow: 1 },
     { width: 400, itemsToShow: 2 },
     { width: 600, itemsToShow: 3 },
-    { width: 900, itemsToShow: 4 },
-    { width: 1300, itemsToShow: 5 }
+    { width: 900, itemsToShow: 4 }
   ]
 
   return (
     <Container>
-      <CategoryImg src={Category} alt="logo da categoria" />
-
+      <CategoryImg src={Category} alt="foto homepage" />
       <Carousel
-        itemsToShow={5}
+        itemsToShow={3}
         style={{ width: '90%' }}
         breakPoints={breakPoints}
       >
-        {categories &&
-          categories.map(category => (
-            <ContainerItems key={category.id}>
-              <Image src={category.url} alt="foto da categoria" />
-              <Button
-                to={{
-                  pathname: '/produtos',
-                  state: { categoryId: category.id }
-                }}
-              >
-                {category.name}
-              </Button>
-            </ContainerItems>
-          ))}
+        {categories.map(category => (
+          <ContainerItens key={category.id}>
+            <Image src={category.url} alt="foto da categoria" />
+            <Button>{category.name}</Button>
+          </ContainerItens>
+        ))}
       </Carousel>
     </Container>
   )
