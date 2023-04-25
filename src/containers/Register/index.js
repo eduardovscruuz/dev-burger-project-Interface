@@ -8,7 +8,7 @@ import * as Yup from 'yup'
 
 import Logo from '../../assets/logo2.png'
 import RegisterImg from '../../assets/signup.png'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 import api from '../../services/api'
 import {
   Container,
@@ -20,7 +20,7 @@ import {
   SignInLink
 } from './styles'
 
-function Register() {
+export function Register() {
   const schema = Yup.object().shape({
     name: Yup.string().required('Nome é obrigatório'),
     email: Yup.string()
@@ -125,5 +125,3 @@ function Register() {
     </Container>
   )
 }
-
-export default Register

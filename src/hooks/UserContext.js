@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable react/jsx-no-constructed-context-values */
 import React, { createContext, useContext, useState, useEffect } from 'react'
@@ -46,4 +45,7 @@ export const useUser = () => {
 
 UserProvider.propTypes = {
   children: PropTypes.node
+}
+UserProvider.defaultProps = {
+  children: null
 }
