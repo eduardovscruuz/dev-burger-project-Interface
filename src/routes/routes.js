@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
 
-import { Home, Login, Products, Register } from '../containers'
+import { Cart, Home, Login, Products, Register } from '../containers'
 import PrivateRoute from './private-route'
 
 function MyRoutes() {
@@ -12,7 +12,8 @@ function MyRoutes() {
         <Route path="/cadastro" element={<Register />} />
         <Route path="/" element={<PrivateRoute />}>
           <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
+          <Route path="/produtos" element={<Products />} />
+          <Route path="/carrinho" element={<Cart />} />
         </Route>
       </Routes>
     </Router>
