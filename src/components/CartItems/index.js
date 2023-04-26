@@ -1,3 +1,5 @@
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
@@ -7,7 +9,8 @@ import formatCurrency from '../../utils/formatCurrency'
 import { Container, Header, Body, EmptyCart } from './styles'
 
 export function CartItems() {
-  const { cartProducts, increaseProducts, decreaseProducts } = useCart()
+  const { cartProducts, increaseProducts, decreaseProducts, deleteProducts } =
+    useCart()
 
   return (
     <Container>
@@ -29,6 +32,10 @@ export function CartItems() {
               <button onClick={() => decreaseProducts(product.id)}>-</button>
               <p>{product.quantity}</p>
               <button onClick={() => increaseProducts(product.id)}>+</button>
+              <button
+                onClick={() => deleteProducts(product.id)}
+                className="fas fa-trash-alt"
+              ></button>
             </div>
             <p>{formatCurrency(product.quantity * product.price)}</p>
           </Body>

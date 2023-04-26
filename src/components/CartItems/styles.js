@@ -46,6 +46,10 @@ export const Body = styled.div`
     p {
       margin-top: 5px;
     }
+
+    .fas {
+      font-size: 15px;
+    }
   }
 `
 export const EmptyCart = styled.p`

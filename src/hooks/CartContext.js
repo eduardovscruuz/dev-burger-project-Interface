@@ -90,7 +90,8 @@ export function CartProvider({ children }) {
         putProductInCart,
         cartProducts,
         increaseProducts,
-        decreaseProducts
+        decreaseProducts,
+        deleteProducts
       }}
     >
       {children}
