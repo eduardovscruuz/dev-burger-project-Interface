@@ -1,5 +1,9 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import ProductsLogo from '../../assets/productspage.png'
 import { CardProduct } from '../../components'
@@ -19,6 +23,13 @@ export function Products() {
   const [filteredProducts, setFilteredProducts] = useState([])
   const [activeCategory, setActiveCategory] = useState(0)
 
+  const { state } = useLocation()
+
+  useEffect(() => {
+    if (state.categoryId) {
+      setActiveCategory(state.categoryId)
+    }
+  }, [state.categoryId])
   useEffect(() => {
     async function loadCategories() {
       const { data } = await api.get('categories')

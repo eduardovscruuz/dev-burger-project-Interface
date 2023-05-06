@@ -3,6 +3,9 @@ import styled from 'styled-components'
 export const Container = styled.div`
   background: #e5e5e5;
   min-height: 100vh;
+  max-width: 1200px;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
 `
 
 export const ProductsImg = styled.img`

@@ -5,10 +5,19 @@ import { Navigate, Outlet } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
+import { Header } from '../components/Header'
+
 const PrivateRoute = ({ element, ...rest }) => {
   const user = localStorage.getItem('devburger:userData')
 
-  return user ? <Outlet /> : <Navigate to="login" />
+  return user ? (
+    <>
+      <Header />
+      <Outlet />
+    </>
+  ) : (
+    <Navigate to="login" />
+  )
 }
 
 export default PrivateRoute

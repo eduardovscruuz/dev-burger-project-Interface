@@ -9,6 +9,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
 `
 
 export const LoginImage = styled.img`
