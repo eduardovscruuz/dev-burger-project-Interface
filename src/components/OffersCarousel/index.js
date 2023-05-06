@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import Carousel from 'react-elastic-carousel'
+import { useNavigate } from 'react-router-dom'
 
 import Offers from '../../assets/ofertas.png'
+import { useCart } from '../../hooks/CartContext'
 import api from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
 import { Container, CategoryImg, ContainerItens, Image, Button } from './styles'
 
 export function OffersCarousel() {
   const [offers, setOffers] = useState([])
+  const navigate = useNavigate()
+  const { putProductInCart } = useCart()
 
   useEffect(() => {
     async function loadOffers() {
@@ -43,7 +47,16 @@ export function OffersCarousel() {
               <Image src={product.url} alt="foto da produto" />
               <p>{product.name}</p>
               <p>{product.formatedPrice}</p>
-              <Button>Peça agora!</Button>
+
+              <Button
+                to="/carrinho"
+                onClick={() => {
+                  putProductInCart(product)
+                  navigate('/carrinho')
+                }}
+              >
+                Peça agora!
+              </Button>
             </ContainerItens>
           ))}
       </Carousel>
