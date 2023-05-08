@@ -1,27 +1,33 @@
-/* eslint-disable react/function-component-definition */
 /* eslint-disable react/require-default-props */
 import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
-import { Header } from '../components/Header'
+import { Header } from '../components'
+import paths from '../contants/paths'
 
-const PrivateRoute = ({ element, ...rest }) => {
+function PrivateRoute({ children }) {
   const user = localStorage.getItem('devburger:userData')
 
-  return user ? (
+  if (!user) {
+    return <Navigate to={paths.Login} />
+  }
+
+  if (children.props.isAdmin && !JSON.parse(user).admin) {
+    return <Navigate to={paths.Home} />
+  }
+
+  return (
     <>
-      <Header />
-      <Outlet />
+      {!children.props.isAdmin && <Header />}
+      {children}
     </>
-  ) : (
-    <Navigate to="login" />
   )
 }
 
 export default PrivateRoute
 
 PrivateRoute.propTypes = {
-  element: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
+  children: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
 }
